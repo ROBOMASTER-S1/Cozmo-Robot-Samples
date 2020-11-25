@@ -7,12 +7,14 @@ def light_when_face(robot: cozmo.robot.Robot):
     face = None
     while True:
         if face and face.is_visible:
-            robot.set_all_backpack_lights(cozmo.lights.blue_light)
+            robot.set_all_backpack_lights(cozmo.lights.green_light)
+            robot.say_text("Hello, I can see you!").wait_for_completed()
         else:
-            robot.set_backpack_lights_off()
-            try:
+            robot.set_backpack_lights_off()            
+            try:                
                 face = robot.world.wait_for_observed_face(timeout=30)
-            except asyncio.TimeoutError:
-                return
-        time.sleep(.1)
+                robot.say_text("I cannot see you now!").wait_for_completed()
+            except asyncio.TimeoutError:               
+                return        
 cozmo.run_program(light_when_face, use_viewer=True, force_viewer_on_top=True)
+
