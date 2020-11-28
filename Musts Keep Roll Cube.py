@@ -14,7 +14,7 @@ def cozmo_program(robot: cozmo.robot.Robot):
      
 cozmo.run_program(cozmo_program)
 
-#robot.go_to_object(cube, distance_mm(70.0)).wait_for_completed()
+# robot.go_to_object(cube, distance_mm(70.0)).wait_for_completed()
 # robot.roll_cube(cube1, check_for_object_on_top=True, num_retries=2).wait_for_completed()
 # robot.world.wait_until_observe_num_objects(num=3, object_type=cozmo.objects.LightCube, timeout=60)
 # lookaround.stop()
